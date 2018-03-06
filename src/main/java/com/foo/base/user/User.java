@@ -1,6 +1,10 @@
 package com.foo.base.user;
 
 public class User {
+	
+	private Long id;
+	private String name;
+	
 	public Long getId() {
 		return id;
 	}
@@ -13,6 +17,4 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	private Long id;
-	private String name;
 }
