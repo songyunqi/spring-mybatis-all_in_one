@@ -15,6 +15,9 @@ public interface UserMapper {
 
 	int update(List<User> list);
 
-	@Select(" select c.customer_username as name from np_customer c where c.customer_username like #{request.name,jdbcType=VARCHAR} ")
+	@Select(" select c.customer_username as name "
+			+ " from np_customer c "
+			+ "where c.customer_username "
+			+ " like #{request.name,jdbcType=VARCHAR} ")
 	List<User> list(@Param("request") UserRequest request);
 }
