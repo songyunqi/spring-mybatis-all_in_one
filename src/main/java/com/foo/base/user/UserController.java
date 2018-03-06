@@ -38,7 +38,7 @@ public class UserController extends CController<User, Long, UserRequest, UserRes
 	public UserResponse doList(UserRequest request) {
 		Page<User> page = userService.page(request);
 		UserResponse response = new UserResponse();
-		response.setContext(page);
+		response.setContent(page);
 		return response;
 	}
 
@@ -61,7 +61,7 @@ public class UserController extends CController<User, Long, UserRequest, UserRes
 	public UserResponse doPage(UserRequest request) {
 		Page<User> page = userService.page(request);
 		UserResponse response = new UserResponse();
-		response.setContext(page);
+		response.setContent(page);
 		return response;
 	}
 

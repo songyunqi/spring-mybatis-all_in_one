@@ -2,16 +2,16 @@ package com.foo.base.response;
 
 public class AResponse<T> {
 
-	private T context;
+	private T content;
 	private int status = 0;
 	private String msg = "0";
 
-	public T getContext() {
-		return context;
+	public T getContent() {
+		return content;
 	}
 
-	public void setContext(T context) {
-		this.context = context;
+	public void setContent(T content) {
+		this.content = content;
 	}
 
 	public String getMsg() {
