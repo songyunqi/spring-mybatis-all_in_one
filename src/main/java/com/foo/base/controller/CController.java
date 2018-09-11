@@ -55,7 +55,7 @@ public abstract class CController<T, ID, TRequest, TResponse>
     @RequestMapping("batchImport")
     @ResponseBody
     public TResponse batchImport(TRequest request, List<T> list) {
-        TResponse response = doBatchImport(list);
+        TResponse response = null;//doBatchImport(list);
         return response;
     }
 
