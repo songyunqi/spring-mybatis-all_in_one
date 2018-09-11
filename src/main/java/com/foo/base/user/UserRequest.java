@@ -1,17 +1,11 @@
 package com.foo.base.user;
 
 import com.foo.base.request.ARequest;
+import lombok.Data;
 
+@Data
 public class UserRequest extends ARequest {
 
-	private String name;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+    private String name;
 
 }
