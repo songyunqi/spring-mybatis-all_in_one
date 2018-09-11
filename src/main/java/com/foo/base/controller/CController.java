@@ -11,21 +11,22 @@ public abstract class CController<T, ID, TRequest, TResponse>
 
     @RequestMapping("save")
     @ResponseBody
-    public TResponse save(T t) {
+    public TResponse save(TRequest request) {
+        T t = null;//BeanUtils.copyProperties(request);
         TResponse response = doSave(t);
         return response;
     }
 
     @RequestMapping("delete")
     @ResponseBody
-    public TResponse delete(List<ID> ids) {
+    public TResponse delete(TRequest request, List<ID> ids) {
         TResponse response = doDelete(ids);
         return response;
     }
 
     @RequestMapping("update")
     @ResponseBody
-    public TResponse update(List<T> list) {
+    public TResponse update(TRequest request, List<T> list) {
         TResponse response = doUpdate(list);
         return response;
     }
@@ -53,7 +54,7 @@ public abstract class CController<T, ID, TRequest, TResponse>
 
     @RequestMapping("batchImport")
     @ResponseBody
-    public TResponse batchImport(List<T> list) {
+    public TResponse batchImport(TRequest request, List<T> list) {
         TResponse response = doBatchImport(list);
         return response;
     }
