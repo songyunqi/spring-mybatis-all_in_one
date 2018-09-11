@@ -13,7 +13,6 @@ public class UserService extends CService<User, Long, UserRequest> {
     @Autowired
     UserMapper userMapper;
 
-
     @Override
     public int save(ARequest request) {
         return 0;
