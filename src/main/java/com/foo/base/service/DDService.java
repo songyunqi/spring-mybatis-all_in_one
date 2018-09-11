@@ -8,16 +8,15 @@ import java.util.List;
  * 模型驱动DD服务接口
  *
  * @param <T>
- * @param <ID>
  * @param <TRequest>
  */
-public interface DDService<T, ID, TRequest extends ARequest> {
+public interface DDService<T, TRequest extends ARequest> {
 
-    int save(ARequest request);
+    int save(TRequest request);
 
-    int delete(ARequest request);
+    int delete(TRequest request);
 
-    int update(ARequest request);
+    int update(TRequest request);
 
     List<T> list(TRequest tRequest);
 }
