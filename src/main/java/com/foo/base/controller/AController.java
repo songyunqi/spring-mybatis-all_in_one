@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface AController<T, TRequest, TResponse> {
 
-	abstract TResponse doStatis(TRequest request);
+	TResponse doStatis(TRequest request);
 
-	abstract TResponse doBatchImport(List<T> list);
+	TResponse doBatchImport(List<T> list);
 
-	abstract void doBatchExport(TRequest request, HttpServletRequest httpServletRequest);
+	void doBatchExport(TRequest request, HttpServletRequest httpServletRequest);
 
 }
