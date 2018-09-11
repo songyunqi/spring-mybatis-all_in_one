@@ -4,11 +4,11 @@ import java.util.List;
 
 public interface DDService<T, ID> {
 
-	public abstract int save(T t);
+    int save(T t);
 
-	public abstract int delete(List<ID> ids);
+    int delete(List<ID> ids);
 
-	public abstract int update(List<T> list);
+    int update(List<T> list);
 
-	public abstract int batchImport(List<T> list);
+    int batchImport(List<T> list);
 }
