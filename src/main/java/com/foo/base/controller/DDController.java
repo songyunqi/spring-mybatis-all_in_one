@@ -2,6 +2,14 @@ package com.foo.base.controller;
 
 import java.util.List;
 
+/**
+ * 模型驱动控制器
+ *
+ * @param <T>
+ * @param <ID>
+ * @param <TRequest>
+ * @param <TResponse>
+ */
 public interface DDController<T, ID, TRequest, TResponse> {
 
     TResponse doSave(T t);

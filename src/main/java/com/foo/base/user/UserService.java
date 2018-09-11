@@ -28,11 +28,6 @@ public class UserService extends CService<User, Long, UserRequest> {
     }
 
     @Override
-    public int batchImport(List<User> list) {
-        return 0;
-    }
-
-    @Override
     public List<User> list(UserRequest tRequest) {
         return null;
     }

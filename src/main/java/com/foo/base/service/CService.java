@@ -6,6 +6,13 @@ import com.github.pagehelper.PageHelper;
 
 import java.util.List;
 
+/**
+ * 某种具体服务，直接实现分页
+ *
+ * @param <T>
+ * @param <ID>
+ * @param <TRequest>
+ */
 public abstract class CService<T, ID, TRequest extends ARequest> implements DDService<T, ID, TRequest> {
 
     public Page<T> page(TRequest request) {

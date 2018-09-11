@@ -6,6 +6,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+/**
+ * 某种具体实现控制器
+ * @param <T>
+ * @param <ID>
+ * @param <TRequest>
+ * @param <TResponse>
+ */
 public abstract class CController<T, ID, TRequest, TResponse>
         implements DDController<T, ID, TRequest, TResponse>, AController<T, TRequest, TResponse> {
 

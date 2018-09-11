@@ -40,10 +40,6 @@ public class UserController extends CController<User, Long, UserRequest, UserRes
         return response;
     }
 
-    @Override
-    public UserResponse doBatchImport(List<User> list) {
-        return null;
-    }
 
     @Override
     public void doBatchExport(UserRequest request, HttpServletRequest httpServletRequest) {
@@ -52,6 +48,11 @@ public class UserController extends CController<User, Long, UserRequest, UserRes
 
     @Override
     public UserResponse doStatis(UserRequest request) {
+        return null;
+    }
+
+    @Override
+    public UserResponse doBatchImport(UserRequest userRequest) {
         return null;
     }
 
