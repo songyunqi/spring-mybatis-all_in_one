@@ -10,4 +10,7 @@ public class UserRequest extends ARequest {
     @NotBlank
     private String name;
 
+
+    private String searchName;
+
 }
