@@ -1,15 +1,13 @@
 package com.foo.base.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 public interface AController<T, TRequest, TResponse> {
 
-	TResponse doStatis(TRequest request);
+    TResponse doStatis(TRequest request);
 
-	TResponse doBatchImport(List<T> list);
+    TResponse doBatchImport(TRequest request);
 
-	void doBatchExport(TRequest request, HttpServletRequest httpServletRequest);
+    void doBatchExport(TRequest request, HttpServletRequest httpServletRequest);
 
 }
