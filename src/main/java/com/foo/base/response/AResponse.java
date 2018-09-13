@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
  * @param <T>
  */
 @Data
-@Builder
 @NoArgsConstructor
 public class AResponse<T> {
 

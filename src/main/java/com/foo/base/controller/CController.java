@@ -59,12 +59,12 @@ public abstract class CController<T, TRequest extends ARequest, TResponse extend
     @Override
     public AResponse doList(TRequest request) {
         List<T> list = service.list(request);
-        return AResponse.builder().content(list).build();
+        return new AResponse();//.builder().content(list).build();
     }
 
     @Override
     public AResponse doPage(TRequest request) {
         Page<T> page = service.page(request);
-        return AResponse.builder().content(page).build();
+        return new AResponse();//.builder().content(page).build();
     }
 }

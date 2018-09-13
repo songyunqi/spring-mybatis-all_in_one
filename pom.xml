@@ -65,6 +65,13 @@
 			<scope>provided</scope>
 		</dependency>
 
+
+		<dependency>
+			<groupId>com.foundationdb</groupId>
+			<artifactId>fdb-sql-parser</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
