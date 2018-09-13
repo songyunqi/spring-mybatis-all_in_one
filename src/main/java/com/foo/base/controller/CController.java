@@ -1,74 +1,70 @@
 package com.foo.base.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import com.foo.base.request.ARequest;
+import com.foo.base.response.AResponse;
+import com.foo.base.service.CService;
+import com.github.pagehelper.Page;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
  * 某种具体实现控制器
- * @param <T>
- * @param <ID>
+ *
  * @param <TRequest>
- * @param <TResponse>
  */
-public abstract class CController<T, ID, TRequest, TResponse>
-        implements DDController<T, ID, TRequest, TResponse>, AController<T, TRequest, TResponse> {
+public abstract class CController<T, TRequest extends ARequest, TResponse extends AResponse<T>>
+        implements DDController<T, TRequest, TResponse>, AController<TRequest> {
 
-    @RequestMapping("save")
-    @ResponseBody
-    public TResponse save(TRequest request) {
-        T t = null;//BeanUtils.copyProperties(request);
-        TResponse response = doSave(t);
-        return response;
+
+    CService service;
+
+    @Autowired
+    public void setService(CService service) {
+        this.service = service;
     }
 
-    @RequestMapping("delete")
-    @ResponseBody
-    public TResponse delete(TRequest request, List<ID> ids) {
-        TResponse response = doDelete(ids);
-        return response;
+    @Override
+    public TResponse doStatistics(TRequest request) {
+        return null;
     }
 
-    @RequestMapping("update")
-    @ResponseBody
-    public TResponse update(TRequest request, List<T> list) {
-        TResponse response = doUpdate(list);
-        return response;
+    @Override
+    public TResponse doBatchImport(TRequest request) {
+        return null;
     }
 
-    @RequestMapping("list")
-    @ResponseBody
-    public TResponse list(TRequest request) {
-        TResponse response = doList(request);
-        return response;
-    }
-
-    @RequestMapping("page")
-    @ResponseBody
-    public TResponse page(TRequest request) {
-        TResponse response = doPage(request);
-        return response;
-    }
-
-    @RequestMapping("statis")
-    @ResponseBody
-    public TResponse statis(TRequest request) {
-        TResponse response = doStatis(request);
-        return response;
-    }
-
-    @RequestMapping("batchImport")
-    @ResponseBody
-    public TResponse batchImport(TRequest request, List<T> list) {
-        TResponse response = null;//doBatchImport(list);
-        return response;
-    }
-
-    @RequestMapping("batchExport")
+    @Override
     public void doBatchExport(TRequest request, HttpServletRequest httpServletRequest) {
 
     }
 
+    @Override
+    public TResponse doSave(TRequest request) {
+        int affectCount = service.save(request);
+        return null;
+    }
+
+    @Override
+    public TResponse doDelete(TRequest request) {
+        return null;
+    }
+
+    @Override
+    public AResponse doUpdate(TRequest request) {
+        return null;
+    }
+
+    @Override
+    public AResponse doList(TRequest request) {
+        List<T> list = service.list(request);
+        return AResponse.builder().content(list).build();
+    }
+
+    @Override
+    public AResponse doPage(TRequest request) {
+        Page<T> page = service.page(request);
+        return AResponse.builder().content(page).build();
+    }
 }

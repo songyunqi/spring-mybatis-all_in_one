@@ -1,6 +1,5 @@
 package com.foo.base.user;
 
-import com.foo.base.request.ARequest;
 import com.foo.base.service.CService;
 import org.springframework.stereotype.Service;
 

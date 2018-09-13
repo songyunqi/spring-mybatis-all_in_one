@@ -1,18 +1,20 @@
 package com.foo.base.controller;
 
+import com.foo.base.request.ARequest;
+import com.foo.base.response.AResponse;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * 抽象控制器
- * @param <T>
+ *
  * @param <TRequest>
- * @param <TResponse>
  */
-public interface AController<T, TRequest, TResponse> {
+public interface AController<TRequest extends ARequest> {
 
-    TResponse doStatis(TRequest request);
+    AResponse doStatistics(TRequest request);
 
-    TResponse doBatchImport(TRequest request);
+    AResponse doBatchImport(TRequest request);
 
     void doBatchExport(TRequest request, HttpServletRequest httpServletRequest);
 

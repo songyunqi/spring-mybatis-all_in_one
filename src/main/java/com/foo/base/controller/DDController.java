@@ -1,25 +1,23 @@
 package com.foo.base.controller;
 
-import java.util.List;
+import com.foo.base.request.ARequest;
+import com.foo.base.response.AResponse;
 
 /**
  * 模型驱动控制器
  *
- * @param <T>
- * @param <ID>
  * @param <TRequest>
- * @param <TResponse>
  */
-public interface DDController<T, ID, TRequest, TResponse> {
+public interface DDController<T, TRequest extends ARequest, TResponse extends AResponse<T>> {
 
-    TResponse doSave(T t);
+    AResponse doSave(TRequest request);
 
-    TResponse doDelete(List<ID> ids);
+    AResponse doDelete(TRequest request);
 
-    TResponse doUpdate(List<T> list);
+    AResponse doUpdate(TRequest request);
 
-    TResponse doList(TRequest request);
+    AResponse doList(TRequest request);
 
-    TResponse doPage(TRequest request);
+    AResponse doPage(TRequest request);
 
 }
